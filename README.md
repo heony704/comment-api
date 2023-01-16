@@ -1,37 +1,23 @@
-## Deploy JSON Server to Vercel
+## 댓글 CRUD를 위한 json-server api
 
-A template to deploy [JSON Server](https://github.com/typicode/json-server) to [Vercel](https://vercel.com), allow you to run fake REST API online!
+댓글 CRUD를 위해 `json-server` 라이브러리를 이용해서 `Vercel`에 구축된 서버입니다.
 
-Demo from this repository: 
+https://comment-api.vercel.app/comments에 `GET` 요청시 `data.json` 파일에 기록된 데이터를 확인할 수 있습니다.
 
-1. https://json-server-in.vercel.app
-2. https://json-server-in.vercel.app/api/posts
+API 사용법에 대한 추가정보는 [`json-server` 공식문서](https://www.npmjs.com/package/json-server)를 참고하세요.
 
-### How to use
-
-1. Click "**Use this template**" or clone this repository.
-2. Update or use the default [`db.json`](./db.json) in the repository.
-3. Sign Up or login into [Vercel](https://vercel.com).
-4. From the Vercel dashboard, click "**+ New Project**" then "**Import**" your repository.
-5. In the "**Configure Project**" screen, leave everything default and click "**Deploy**".
-6. Wait until deployment is done, and your own JSON server is ready to serve!
-
-## Default `db.json`
-
-```json
-{
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
-}
-```
+| method | url |
+| ------ | --------------------- |
+| GET | /comments |
+| GET | /comments/{commentId} |
+| POST | /comments |
+| PUT | /comments/{commentId} |
+| DELETE | /comments/{commentId} |
+      
+API 호출 예시:
+- 한페이지에 4개의 게시물이 보이고, 최근 게시물부터 정렬해서 3페이지를 보고 싶은 경우
+- GET `/comments?_page=3&_limit=4&_order=desc&_sort=id`
 
 ## Reference
 
-1. https://github.com/typicode/json-server
-2. https://vercel.com
-3. https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel
+- https://github.com/kitloong/json-server-vercel
